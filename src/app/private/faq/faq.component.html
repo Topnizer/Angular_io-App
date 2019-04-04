@@ -1,0 +1,20 @@
+<div class="container">
+          <div class="panel-group" id="accordion">
+              <div *ngFor="let faq of faqs index as i" class="panel panel-default">
+                  <div class="panel-heading"  id="headingOne">
+                      <h4 class="panel-title">
+                          <!-- FAQ Questions -->
+                          <a   class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}" >
+                              {{faq.Question}}
+                          </a>
+                      </h4>
+                  </div>
+                  <!-- FAQ Answers -->
+                  <div id="collapse{{i}}" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          <p>{{faq.Answer}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</div>

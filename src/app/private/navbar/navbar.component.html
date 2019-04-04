@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Nurses Online</a>
+    </div>
+    <!-- Dropdown Menu -->
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" >{{Profile}}<span class="avatar"> <img class="avatar" src="http://rs775.pbsrc.com/albums/yy35/PhoenyxStar/link-1.jpg~c200"></span></a>
+    <!-- Dropdown Menu Contents -->
+        <ul class="dropdown-menu">
+            <li><a routerLink='/nav/profile'><i class="w3-badge"><img class="w3-badge w3-margin-left"  src="http://rs775.pbsrc.com/albums/yy35/PhoenyxStar/link-1.jpg~c200"></i>{{Profile}}</a></li>
+            <li><a routerLink='/nav/bookings'><i class="glyphicon glyphicon-th-list" style="font-size:13px"></i>My Bookings
+                      <i *ngIf="count.count" matBadge="{{count.count}}" matBadgeOverlap="false"></i></a></li>
+            <li><a routerLink='/nav/FAQ'><i class="glyphicon glyphicon-star" style="font-size:13px"></i>FAQ's</a></li>
+            <li (click)="logout()"><a><i class="glyphicon glyphicon-log-out" style="font-size:13px"></i>LogOut</a></li>
+          </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- Gets the title from service and updates it dynamically -->
+<h2><b>{{title.title}}</b></h2>
+<router-outlet></router-outlet>

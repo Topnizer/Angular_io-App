@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+  
+        <div class="col-md-8 col-md-offset-2">
+               
+            <img class="avatar" src="http://rs775.pbsrc.com/albums/yy35/PhoenyxStar/link-1.jpg~c200">
+            <form #form='ngForm' method="POST" >
+                <fieldset>
+                    <!-- Fullname form field -->
+                    <div class="col-md-6">
+                        <label for="full_name">FULL NAME</label>
+                        <input type="text" #FullName="ngModel" [(ngModel)]="fullname" class="form-control" name="full_name"  placeholder="Full Name" required>
+                        <!-- Error pops up if fullname is not valid -->
+                        <div class="alert-danger" *ngIf="FullName.touched && FullName.errors?.required">FullName is Reqiured</div>
+                   </div>
+  
+                   <!-- Email address form field -->
+                    <div class="form-group col-md-6">
+                        <label for="">EMAIL ADDRESS</label>
+                        <input type="email" #Email="ngModel" [(ngModel)]="details.email"  class="form-control" name="email" placeholder="Email" required email>
+                        <!-- Error pops up if Email is not valid -->
+                        <div class="alert-danger" *ngIf="Email.touched && Email.errors?.required">Email is Reqiured</div>
+                        <div class="alert-danger" *ngIf="Email.touched && Email.errors?.email">Email must be a valid email address</div>
+                    </div>
+  
+                     <!-- Phone Number form field -->
+                    <div class="col-md-6">
+                        <label for="phone_no">PHONE NUMBER</label>
+                        <input type="number" #PhoneNumber="ngModel" [(ngModel)]="details.phoneNumber" class="form-control" name="phone_no" placeholder="PHONE NUMBER" required minlength="10"/>
+                         <!-- Error pops up if PhoneNumber is not valid -->
+                        <div class="alert-danger" *ngIf="PhoneNumber.touched && PhoneNumber.errors?.required">PhoneNumber is Reqiured</div>
+                        <div class="alert-danger" *ngIf="PhoneNumber.touched && (PhoneNumber.errors?.minlength || PhoneNumber.errors?.maxlength)">PhoneNumber is Reqiured</div>
+                    </div>
+  
+                    <!-- Address form field -->
+                    <div class="form-group col-md-6">
+                        <label for="address">ADDRESS</label>
+                        <input type="text" #Address="ngModel" [(ngModel)]="details.address" class="form-control" name="address" placeholder="ADDRESS" required>
+                        <!-- Error pops up if Address is not valid -->
+                        <div class="alert-danger" *ngIf="Address.touched && Address.errors?.required">Address is Reqiured</div>
+                    </div>
+                     <!-- Error pops up if Record is not valid -->
+                    <div class="form-group col-md-6">
+                        <label for="">BRIEF MEDICAL HISTORY OF THE PATIRNT(OPTIONAL)</label>
+                        <input type="text" #Record="ngModel" [(ngModel)]="details.record" class="form-control" name="record" placeholder="RECORD">
+                    </div>
+                    <div class="form-group col-md-6 text-center">
+                            <button type="submit" class="btn btn-success" (click)="updateProfile()" [disabled]="form.invalid">
+                                UPDATE PROFILE
+                            </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+  
+    </div>
+  </div>
+  

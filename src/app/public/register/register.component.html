@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-8 col-md-offset-2">
+              <strong>REGISTER</strong>
+                 
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              
+                  <!--Input Field for FirstName  -->
+              <div class="col-md-6">
+                <label>FIRST NAME</label>
+                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': f.firstName.errors }" placeholder="First Name"/>
+              <!-- Error pops up if first name is not valid -->
+                <div *ngIf="(submitted || f.firstName?.touched ) && f.firstName.errors" class="alert-danger">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+            </div>
+             <!--Input Field for LastName  -->
+            <div class="form-group col-md-6">
+                <label>LAST NAME</label>
+                <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Last Name" />
+                <!-- Error pops up if last name is not valid -->
+                <div *ngIf="(submitted || f.lastName?.touched) && f.lastName.errors" class="alert-danger">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+            </div>
+             <!--Input Field for Email  -->
+            <div class="col-md-6">
+                <label>EMAIL</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email"/>
+                 <!-- Error pops up if Email is not valid -->
+                <div *ngIf="(submitted || f.email?.touched ) && f.email.errors" class="alert-danger">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+            </div>
+             <!--Input Field for PhoneNumber  -->
+            <div class="form-group col-md-6">
+                <label>PHONE NUMBER</label>
+                <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Phone Number"/>
+                <!-- Error pops up if PhoneNumber is not valid -->
+                <div *ngIf="(submitted || f.phoneNumber?.touched) && f.phoneNumber.errors" class="alert-danger">
+                    <div *ngIf="f.phoneNumber.errors.required">PhoneNumber is required</div>
+                    <div *ngIf="f.phoneNumber.errors.minlength || f.phoneNumber.errors.maxlength">PhoneNumber must be of 10 digits</div>
+                </div>
+            </div>
+             <!--Input Field for Address  -->
+            <div class="col-md-6">
+                <label>ADDRESS</label>
+                <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Address"/>
+                 <!-- Error pops up if Address is not provided-->
+                <div *ngIf="(submitted || f.address?.touched) && f.address.errors" class="alert-danger">
+                    <div *ngIf="f.address.errors.required">Address is required</div>
+                </div>
+            </div>
+             <!--Input Field for Users Record -->
+            <div class="form-group col-md-6">
+                <label>BRIEF MEDICAL HISTORY OF THE PATIRNT(OPTIONAL)</label>
+                <input type="text" formControlName="record" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Record" />
+            </div>
+             <!--Input Field for Password -->
+            <div class="col-md-6">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <!-- Error pops up if Password is not provided-->
+                <div *ngIf="(submitted || f.password?.touched) && f.password.errors" class="alert-danger">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+             <!--Input Field for Confirm Password -->
+            <div class="form-group col-md-6">
+                <label>Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                 <!-- Error pops up if Confirm Password is not provided-->
+                <div *ngIf="(submitted || f.confirmPassword?.touched) && f.confirmPassword.errors" class="alert-danger">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <!-- Error pops up if Confirm Password and Password does not match-->
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-12">
+                <div class=" text-center" >
+                    <button type="submit" class="btn btn-success">
+                        REGISTER
+                    </button>
+                  </div>
+            </div>
+        </form>
+        <!-- Link to jump to the Login page -->
+        <div class=" form-group">
+            <div class="col-md-12 text-center loginlink">
+                Already have an account?.........<a routerLink="/login" routerLinkActive='active'>Login here</a>
+          </div>
+        </div>
+        
+      </div>
+
+  </div>
+</div>
