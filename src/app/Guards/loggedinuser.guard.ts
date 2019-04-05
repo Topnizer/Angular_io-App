@@ -11,12 +11,10 @@ export class LoggedInUserGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if(localStorage.getItem("loggedIn")=== "true")
     {
-      console.log("false");
       this.router.navigate(['/nav/profile']);
       return false;
     }
     else{
-      console.log("true");
       return true;
     }
 

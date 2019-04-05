@@ -6,7 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PrivateRoutingModule } from './private-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MaterialModule } from '../angular-material/material.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import { BookingsComponent } from './bookings/bookings.component';
 import { FaqComponent } from './faq/faq.component';
 

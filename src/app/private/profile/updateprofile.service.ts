@@ -11,7 +11,6 @@ export class UpdateProfile {
 
     updateDetails(details, id){
         const url= 'http://localhost:3000/RegisteredUsers/'+id ;
-        console.log(url);
         return this.httpClient.patch(url, details);
       }
 
